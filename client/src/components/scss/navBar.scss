@@ -1,0 +1,25 @@
+.ContainerNav{  
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px #E5E7EBCC solid;
+    padding: 0px 40px;
+
+    .navegationElements{    
+        display: flex;
+        gap: 35px;
+
+        .HomeItem{  
+
+        }
+        .AccountItem{   
+            background-color: #E5E7EBCC;
+            color: #121826;
+            border-radius: 4px;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-weight: 400;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.ContainerRegister{ 
+    .ContainerContentApp{ 
+        margin-top: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+
+        .heroBanner-left,
+        .heroBanner-right{
+            width: 28.125%;
+        }
+
+        .heroBanner-left{
+            position: relative;
+            right: 20px;
+        }
+        .heroBanner-right{
+            position: relative;
+            left: 20px;
+        }
+    }
+}

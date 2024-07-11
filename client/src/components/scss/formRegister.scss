@@ -1,0 +1,14 @@
+.ContainerForm{ 
+    width: 350px;
+    height: 350px;
+    padding: 50px 25px;
+    border: 2px #E5E7EB solid;
+    border-radius: 16px;
+    background-color: white;
+    backdrop-filter: blur(10px);
+    .containeButtonsRegiter{    
+        z-index: 5;
+    }
+    .FormContain{   
+    }
+}
