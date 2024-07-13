@@ -15,7 +15,7 @@ function HomeApp() {
 
   return (
     <div className="ContainerHomeApp">   
-      HomeApp
+      Collections
     </div>
   );
 }

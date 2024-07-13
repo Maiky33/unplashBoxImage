@@ -4,8 +4,7 @@ import "./scss/formRegister.scss"
 function FormRegister(props:any) {
 
   const { 
-    onSubmitSingUp,
-    onSubmitSingIn,
+    onSubmitSingUporSingIn,
     formState,
     OnsubmitRegister,
     Errors,
@@ -16,8 +15,9 @@ function FormRegister(props:any) {
   return (
     <div className="ContainerForm"> 
       <div className="containeButtonsRegiter"> 
-        <button onClick={onSubmitSingUp} className={!formState ? "ButtonSelectedButtonSingUp" : "ButtonSingUp"} type="submit">Sing Up</button>
-        <button onClick={onSubmitSingIn} className={formState? "ButtonSelectedButtonSingIn" : "ButtonSingIn"} type="submit">Sing In</button>
+        <button onClick={onSubmitSingUporSingIn} className={"singUporSingIn"} type="submit">
+          {!formState? "Sing Up" : "Sing In"}
+        </button>
       </div>
 
       <form onSubmit={OnsubmitRegister} className="FormContain">
@@ -31,11 +31,11 @@ function FormRegister(props:any) {
         {
           !formState?
           <div className="containinputText"> 
-          <p className="userNameText">UserName</p>
-          <input placeholder="Enter your Name" className="usernameInput" type="text" {...register('userName', {required:true})}/>
-          {
-            errors.userName && <p className="errorData">UserName is Required</p>
-          }
+            <p className="userNameText">UserName</p>
+            <input placeholder="Enter your Name" className="usernameInput" type="text" {...register('userName', {required:true})}/>
+            {
+              errors.userName && <p className="errorData">UserName is Required</p>
+            }
           </div>:null
         }
 
@@ -56,9 +56,12 @@ function FormRegister(props:any) {
           }
         </div>
 
-        <button className="ButtonSingUpSend" type="submit">  
-          {!formState? 'Sing Up' : 'Sing In'}
-        </button>
+        
+        <div className="containerButtonSingUpSend"> 
+          <button className="ButtonSingUpSend" type="submit">  
+            {!formState? 'Sing Up' : 'Sing In'}
+          </button>
+        </div>
       </form>
     </div>
   );

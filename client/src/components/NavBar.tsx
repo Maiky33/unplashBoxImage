@@ -12,9 +12,9 @@ import logo from "../images/Logo.svg"
 
 
 
-function NavBar() {
+function NavBar(props:any) {
 
-  let isAuthenticated = false
+  const {isAuthenticated} = props
 
   return (
     <div className="ContainerNav">
