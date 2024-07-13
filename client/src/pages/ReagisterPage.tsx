@@ -11,6 +11,7 @@ import heroLeft from "../images/hero-left.png"
 import heroRight from "../images/hero-right.png"
 import FormRegister from "../components/FormRegister"
 import SearchComponent from "../components/SearchComponent";
+import Gradiend from "../images/gradiend-bg@2x.png"
 
 
 function RegisterPage() {
@@ -19,6 +20,8 @@ function RegisterPage() {
   const {SingUp,SingIn,isAuthenticated,Errors,reloginverifyToken}:any = useAuth()
 
   const [formState, setformState] = useState(true)
+  const [inputValue, setinputValue] = useState();
+
 
   
   // const navigate = useNavigate()
@@ -50,9 +53,16 @@ function RegisterPage() {
 
   return (
     <div className="ContainerRegister">   
-      <NavBar isAuthenticated={isAuthenticated}/>  
-      <div className="ContainerContentApp"> 
-        <img className="heroBanner-left" src={heroLeft} alt="" />
+      <NavBar isAuthenticated={isAuthenticated}/> 
+      
+      {inputValue && inputValue !== "" ?<img src={Gradiend} draggable={false} className="headerSearchActive" />:null}
+      
+
+      <div className={!inputValue || inputValue === "" ? "ContainerContentApp" : "ContainerContentAppSearchActive"}> 
+        {!inputValue || inputValue === "" ?
+          <img className="heroBanner-left" src={heroLeft} alt="" />
+          :null
+        }
         <div className="formRegisterandSearchComponent"> 
           {
             !isAuthenticated?<FormRegister 
@@ -63,10 +73,13 @@ function RegisterPage() {
               errors={errors}
               register={register}
             />:
-            <SearchComponent/>
+            <SearchComponent inputValue={inputValue} setinputValue={setinputValue} />
           }
         </div>
-        <img className="heroBanner-right" src={heroRight} alt="" />
+        {!inputValue || inputValue === "" ?
+          <img className="heroBanner-right" src={heroRight} alt="" />
+          :null
+        }
       </div>
     </div>
   );

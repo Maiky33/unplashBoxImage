@@ -1,5 +1,15 @@
 .ContainerRegister{ 
+
+    .headerSearchActive{    
+        width: 100% !important;
+        height: 90px;
+        z-index: 1 !important;
+    }
+
+    .ContainerContentAppSearchActive,
     .ContainerContentApp{ 
+        z-index: 4 !important;
+
         margin-top: 70px;
         display: flex;
         justify-content: space-between;
@@ -19,10 +29,32 @@
             left: 20px;
         }
         .formRegisterandSearchComponent{   
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 40%;
         }
+
+
     }
 
+
+    .ContainerContentAppSearchActive{  
+        margin-top: 0px; 
+        justify-content: center;
+        animation: removePosition 2s forwards;
+    }
+    
+    @keyframes removePosition {
+        from {
+
+            
+        }
+        to {
+            position: relative;
+            bottom: 35px;
+        }
+    }
 
     @media screen and (max-width: 916px) {
         .ContainerContentApp{   
