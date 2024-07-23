@@ -6,6 +6,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 import RegisterPage from "./pages/ReagisterPage";
 import HomeApp from "./pages/HomeApp";
+import CollectionsPage from "./pages/CollectionPage"
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
@@ -18,7 +19,7 @@ function App() {
 
           <Route element={<ProtectedRoute/>}> 
             <Route path="/HomeApp" element={<HomeApp/>}/>
-            <Route path="/Collections" element={<HomeApp/>}/>
+            <Route path="/Collections" element={<CollectionsPage/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
