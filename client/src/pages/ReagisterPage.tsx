@@ -67,7 +67,6 @@ function RegisterPage() {
           />
         </div>
 
-        
         <img className="heroBanner-right" src={heroRight} alt="" />
 
       </div>
