@@ -18,6 +18,7 @@ function App() {
 
           <Route element={<ProtectedRoute/>}> 
             <Route path="/HomeApp" element={<HomeApp/>}/>
+            <Route path="/Collections" element={<HomeApp/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

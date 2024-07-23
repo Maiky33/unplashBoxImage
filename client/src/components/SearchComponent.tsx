@@ -6,9 +6,8 @@ import "./scss/searchComponent.scss"
 
 function SearchComponent(props:any) {
 
-  const {inputValue, setinputValue} = props
+  const {inputValue, setinputValue, photos, setPhotos} = props
 
-  const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
   const [links, setLinks] = useState({});
   const accessKey = process.env.REACT_APP_ACCESS_KEY; // Reemplaza con tu Access Key de Unsplash
@@ -18,20 +17,22 @@ function SearchComponent(props:any) {
   }
 
   useEffect(()=>{ 
-    console.log(inputValue)
-  },[inputValue])
+    console.log(photos)
+  },[photos])
 
 
   const fetchPhotos = async (page:any) => {
     try {
-      const response = await axios.get(`https://api.unsplash.com/photos`, {
+      const response = await axios.get(`https://api.unsplash.com/search/photos`, {
         params: {
           page: page,
+          query: inputValue,
+          per_page: 30,
           client_id: accessKey
         }
       });
 
-      setPhotos(response.data);
+      setPhotos(response.data.results);
       parseLinks(response.headers.link);
     } catch (error) {
       console.error('Error fetching photos:', error);
@@ -51,10 +52,7 @@ function SearchComponent(props:any) {
 
   useEffect(() => {
     fetchPhotos(page);
-  }, [page]);
-
-  console.log("photos",photos)
-  console.log("links",links)
+  }, [page,inputValue]);
 
   return (
     <div className="containerSearchComponent">   

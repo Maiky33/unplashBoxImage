@@ -8,8 +8,10 @@
 
     .navegationElements{    
         display: flex;
+        align-items: center;
         gap: 35px;
 
+        .HomeItem,
         .AccountItem{   
             background-color: #E5E7EBCC;
             color: #121826;

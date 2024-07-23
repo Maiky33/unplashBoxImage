@@ -16,6 +16,8 @@ function NavBar(props:any) {
 
   const {isAuthenticated} = props
 
+  const usenavigate = useNavigate()
+
   return (
     <div className="ContainerNav">
       <img className="LogoNav" src={logo} alt="" />
@@ -23,8 +25,8 @@ function NavBar(props:any) {
 
       {isAuthenticated?
         <div className="navegationElements"> 
-          <div className="HomeItem">Home</div>
-          <div className="CollectionsItem">Collections</div>
+          <div onClick={()=>{usenavigate("/")}} className="HomeItem">Home</div>
+          <div onClick={()=>{usenavigate("/Collections")}} className="CollectionsItem">Collections</div>
         </div>: 
         <div className="navegationElements"> 
           <div className="AccountItem">Account</div>
